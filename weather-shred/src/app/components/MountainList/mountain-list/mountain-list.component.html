@@ -1,0 +1,9 @@
+<h1>
+    Mountains! 
+</h1>
+
+<mat-grid-list cols="3" rowHeight="600">
+    <span *ngFor="let mountain of listOfMountains">
+        <mat-grid-tile colspan="1"><app-mountain-card [mountainInfo]="mountain"></app-mountain-card></mat-grid-tile>
+    </span>
+</mat-grid-list>
