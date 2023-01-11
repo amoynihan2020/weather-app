@@ -1,5 +1,6 @@
 import { Component, Injectable, Input, OnInit } from '@angular/core';
-
+import { Mountain } from 'src/app/Mountain';
+import { MountainService } from 'src/app/services/Mountain.service';
 @Component({
   selector: 'app-mountain-card',
   templateUrl: './mountain-card.component.html',
@@ -9,15 +10,38 @@ import { Component, Injectable, Input, OnInit } from '@angular/core';
 export class MountainCardComponent implements OnInit{
   imgUrl:string
   logoUrl:string
-  @Input() mountainInfo :{title:string, location:string, currWeather:string, nextDayWeather:string, prevWeekSnowFall:string, totalSnowFall:number, imgUrl:string, logoUrl:string}
-  constructor(){};
+  @Input() mountainInfo :Mountain;
+  constructor(private mountainService:MountainService){};
   ngOnInit(): void {
     if(this.mountainInfo){
       this.imgUrl = `../../${this.mountainInfo.imgUrl}`
       this.logoUrl = `../../${this.mountainInfo.logoUrl}`
-      console.log(this.mountainInfo)
+
+      this.mountainService.getCurrentMountainData(this.mountainInfo).subscribe((resp)=>{
+        this.createCurrentWeather(resp)
+       
+      })
+
+      this.mountainService.getHistoricalMountainData(this.mountainInfo).subscribe((resp) =>{
+        this.getHistoricalSnowLevels(resp);
+      })
+      
     }
       
     
+  }
+
+  updateMountainInfo(){
+
+
+  }
+
+  createCurrentWeather(theFetchedWeather:any){
+    const currentWeather = `${theFetchedWeather.current.temp_f}F, ${theFetchedWeather.current.condition.text}`;
+    this.mountainInfo.currWeather = currentWeather
+  }
+
+  getHistoricalSnowLevels(theFetchedWeather:any){
+     console.log(theFetchedWeather);
   }
 }
