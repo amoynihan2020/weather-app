@@ -1,5 +1,6 @@
 export const dummyInfo= [{
     title: "Loon ",
+    zipCode: "03251",
     location: 'Lincoln, NH',
     currWeather: "PEACHY!",
     nextDayWeather: "LESS PEACHY",
@@ -11,6 +12,7 @@ export const dummyInfo= [{
 
 {
     title: "Sunday River",
+    zipCode: "04261",
     location: "Newry, ME",
     currWeather: 'PEACHY',
     nextDayWeather: "MORE PEACHY",
@@ -22,6 +24,7 @@ export const dummyInfo= [{
 
 {
     title: "Sugarloaf",
+    zipCode: "04947",
     location: "Carrabasset Valley, ME",
     currWeather: 'PEACHY',
     nextDayWeather: "APPROPRIATE PEACHY",

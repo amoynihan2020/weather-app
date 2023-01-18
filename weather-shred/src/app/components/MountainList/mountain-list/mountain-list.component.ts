@@ -1,4 +1,5 @@
 import { Component, OnInit,  } from '@angular/core';
+import { Mountain } from 'src/app/Mountain';
 import { dummyInfo } from 'src/helper';
 import { MountainCardComponent } from '../../MountainCard/mountain-card/mountain-card.component';
 @Component({
@@ -7,7 +8,7 @@ import { MountainCardComponent } from '../../MountainCard/mountain-card/mountain
   styleUrls: ['./mountain-list.component.css']
 })
 export class MountainListComponent implements OnInit{
-  listOfMountains:Array<{title:string, location:string, currWeather:string, nextDayWeather:string, prevWeekSnowFall:string, totalSnowFall:number, imgUrl:string, logoUrl:string}> = []
+  listOfMountains:Array<Mountain> = []
 
   ngOnInit(){
     this.listOfMountains=dummyInfo

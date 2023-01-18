@@ -1,24 +1,19 @@
 .example-card {
-    width:350px;
-    height:400px;
-    background-color: #fff;
-    outline: 1px solid green;
-  }
-  mat-card-header {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    
-  }
-  mat-card-header > .mountain-title{
-    font-size: 20px;
-  }
+  display:flex;
+  width:400px;
+  height:600px;
+  border: 1px solid green;
+}
+.example-card > .mountain-image{
+  height:400px;
+  width:350px;
+  align-items: center;
+  justify-content: center;
 
- 
+  
+}
 
- 
-
-   li {
-    list-style: none;
-
-   }
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
